@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- iPhone -->
+<link href="img/ios_portrait.jpg" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+
+<!-- iPhone (Retina) -->
+<link href="img/ios_portraitx2.jpg" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+<!-- iPhone 5 -->
+<link href="img/ios_portrait-iph5.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+<title>AppLogistica.uy</title>
+     
+<style type="text/css" media="all">
+
+html {
+	height:100%;
+}
+
+body { min-height: 480px; }
+
+body,ul,li,header,nav,aside,section,article,p {
+	padding:0;
+	margin:0;
+	border:0;
+}
+
+body {
+	font-size:16px;
+	font-family:helvetica;
+	background:#cbd2d8;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-webkit-touch-callout: none; /*inherit or none*/
+	-webkit-tap-highlight-color: rgba(255,255,255,0); /*rgba(0,0,0,0)*/
+	-webkit-user-select: text; /*auto  none text*/
+	-webkit-text-size-adjust: none; /*auto none text*/
+}
+
+/*COLOURS "DEL X" in Cart*/
+a {color:#dcdcdc; text-decoration: none;}
+
+.hovlnk {opacity: 1;}
+a:hover .hovlnk {opacity: 0.6;}
+
+.infolink {color:#003f5e; opacity: 0.8; text-decoration: none;}
+
+input {
+    border: 1px solid #56a1d5;
+    background: rgba(255,255,255,.5);
+    color: #003f5e;
+} 	
+
+h2 {font-size:1.2em;}
+h2, p {margin-bottom:0.5em;line-height:100%;}
+
+header,nav,aside,section,article {display:block;}
+
+#page {
+	width:100%; height:100%;
+	top: 0;
+	left: 0;
+	position:fixed;
+	display:-webkit-box;
+	-webkit-box-orient:portrait;
+}
+
+#sidebar {
+	width:100%;
+	-webkit-box-flex:1;
+	position:relative;
+	height:100%;
+}
+
+header {
+	position: fixed;
+	z-index: 33;
+	top: 0;
+	left: 0;
+	width:100%;
+	height:44px; 
+	line-height:44px;
+	border-bottom:1px solid #001f2f;
+	background-color:#003f5e;
+	background-image:-webkit-gradient(linear, 0 0, 0 50, from(#56a1d5), to(#003f5e));
+	color:#fff;
+	font-size:28px; font-weight:bold;
+	text-align:center;
+	text-shadow:0 1px 0 #001f2f;	
+}
+header.navbar {
+	font-size:18px; font-weight:bold;}
+
+footer {
+	position: absolute;
+	z-index: 1;
+	bottom: 1px;
+	left: 0;
+	width: 100%;
+	height:44px; 
+	line-height:44px;
+	border-top:1px solid #001f2f;
+	background-color:#003f5e;
+	background-image:-webkit-gradient(linear, 0 0, 0 50, from(#56a1d5), to(#003f5e));
+	color:#fff;
+	font-size:1em; 
+	font-weight:bold;
+	text-align:left;
+	text-shadow:0 1px 0 #001f2f;
+	padding: 0;
+	display: block;
+	-webkit-user-select: none;
+}
+
+
+footer a {
+	display: block;
+	  width: 100%;		
+	  color:#fff;
+	  text-decoration:none;
+	  margin-left:0px;
+	  height:44px;
+	  line-height:44px;  
+}
+
+#navScroller > li {
+	padding:0;
+	border-bottom:0px solid #ccc;
+	height:50px; 
+	line-height:50px;
+}
+
+#contentScroller {
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	padding: 1px 10px 5px 10px;
+	-webkit-box-flex:1;
+	overflow:scroll;
+}
+
+#contentScroller p {padding: 0 8px 0 8px;line-height:120%; margin: 0 0 10px 0; font-size:0.85em;}
+#contentScroller p.footerspace {padding: 40px;}
+
+#contentWrapper01, #contentWrapper02  {
+	position:absolute; 
+	z-index:1;
+	display:block; 
+	float:left;
+	width:100%; 
+	height:100%; 
+	background:transparent;
+	overflow:auto;
+	border:none;
+	left:0px;
+	top: 50px;
+	border: 0px solid red;
+}
+
+#contentCart  {
+	position:relative;
+	z-index:1; 
+	display:block; 
+	float:left;
+	width:100%; 
+	height:auto; 
+	background:transparent;
+	overflow:auto;
+	left:0px;
+	top: 5px;
+	border: 0px solid red;
+}
+
+
+nav {
+	position:absolute;
+	top:44px; bottom:0; left:0; right:0;
+	font-size:15px;
+	bottom:44px;
+	background:transparent;
+	}	
+		
+#contentOrder {
+	position:absolute;
+	top:50px; bottom:0; left:0; right:0;
+	padding: 0;
+	font-size:15px;
+	bottom:44px;
+	background:transparent;
+	border: 0px solid red;
+	}
+
+#orderScroller {
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	padding: 0 0 5px 0;
+	-webkit-box-flex:1;
+	overflow:scroll;
+	background: #ededed;
+}
+	
+.ph-no {
+	font-size:18px; font-weight:normal; color:#000; float:right;
+	padding: 0 20px 0 1px;
+	}	
+	
+/* apply a natural box layout model to all elements 
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }*/
+
+#transition1, #transition2, #transition3, #transition4  {
+	position:absolute; 
+	z-index:1;
+	display:block; 
+	float:left;
+	width:100%; 
+	height: 100%;
+	background:transparent;
+	overflow:auto;
+	border:none;
+	left:0px;
+	top: 50px;
+	border: 0px solid red;
+}
+
+.scroller {
+	position:absolute; z-index:1;
+	width:100%;
+	padding:0;
+}
+
+
+/* -------LANDSCAPE iPhone 4------- */	
+@media screen and (min-width: 321px)
+{
+h2 {font-size:1.4em;}
+#contentScroller p {padding: 0 16px 0 16px;}
+}
+
+#contact { width: 500px; }
+#contact label { width: 250px; }
+#contact label.error, #commentForm input.submit { margin-left: 253px; }
+#signupForm { width: 670px; }
+#signupForm label.error {
+	margin-left: 10px;
+	width: auto;
+	display: inline;
+}
+#newsletter_topics label.error {
+	display: none;
+	margin-left: 103px;
+}
+</style>
+
+<link rel="stylesheet" href="assets/cat-scroller-views.css">
+<link rel="stylesheet" href="assets/reveal-iphone.css">
+<link rel="stylesheet" href="assets/navscroll-iphone.css">
+<link rel="stylesheet" href="assets/navbtns.css">
+<link rel="stylesheet" href="assets/cart-table.css">
+<link rel="stylesheet" href="assets/popuptoggle.css">
+<link rel="stylesheet" href="assets/vertical.css">
+<link rel="stylesheet" href="assets/formstyle.css">
+
+
+<!--Add to HOME SCREEN-->
+<link rel="stylesheet" href="assets/add2home.css">
+<script type="text/javascript" src="assets/add2home.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+<!--START PAGE =============================================================================================================================-->
+<div id="page">
+	<div id="sidebar">
+		<header class="navbar"><a href="javascript:location.reload(true)" class="button icon"><img src="img/home-icon.png" /></a>AppLogistica.uy</header>
+		<nav id="navWrapper">
+		<div id="">
+			<ul id="navScroller">
+				<li class="catagory-eatout"><a href="#" class="" id="button-eatout"><span class="catagoryname-eatout">Despachantes</span><span class="cat-next">&gt;</span></a></li>
+				<li class="catagory-todo"><a href="#" class="" id="button-todo"><span class="catagoryname-todo">Agencias Maritimas</span><span class="cat-next">&gt;</span></a></li>
+				<li class="catagory-accom"><a href="#" class="" id="button-accomm"><span class="catagoryname-accom">Forwarders/Transitarios</span><span class="cat-next">&gt;</span></a></li>
+				<li class="catagory-eatout"><a href="#" class="" id="button-eatout"><span class="catagoryname-eatout">Transportistas</span><span class="cat-next">&gt;</span></a></li>
+				<li class="catagory-todo"><a href="#" class="" id="button-todo"><span class="catagoryname-todo">Intraportuarios</span><span class="cat-next">&gt;</span></a></li>
+				<li class="catagory-accom"><a href="#" class="" id="button-accomm"><span class="catagoryname-accom">Aduanas - ANP</span><span class="cat-next">&gt;</span></a></li>
+				<li class="catagory-nav"><a href="#" class="" id="button-nos"><span class="catagoryname-nav">Privacidad</span><span class="cat-next">&gt;</span></a></li>
+			</ul>
+			<ul><li class="navbottom"></li></ul>		
+		</div>	
+		</nav>
+				
+	</div> <!-- end catagory menu -->
+	
+</div><!--END PAGE =============================================================================================================================-->
+
+<div id="popup_container">
+
+	  <div id="about_popup">
+	  	  <h1>My Order<button><a href="javascript:;" class="simpleCart_checkout">Checkout</a></button></h1>  
+	  </div><!-- end popup 1 -->
+	  
+</div>
+	
+<div id="bottom_bar">
+	<ul id="bottom_menu">
+	<li><a href="#" id="button-order"><span class="spacer">Contacto</span><span class="simpleCart_quantity"></span><span class="spacer">Items Total</span><span class="simpleCart_total"></span></a></li>
+
+	</ul>
+	</div>
+
+</div><!--END POPUP =============================================================================================================================-->
+
+
+
+<!-- ++++++++++++++++ SCRIPTS BELOW DOM ++++++++++++++++++ -->
+
+<script src="assets/iscroll-mod.js"></script> <!-- From cubiq dot org with my mod for Android  -->
+    <script>
+        var scroll1, scroll2, scroll3,
+        scrollContent01, scrollContent02,
+        scrollOrder, scrollNav;
+        
+        function loaded() {
+       setTimeout(function () {
+            scrollNav = new iScroll('navWrapper');
+            scroll1 = new iScroll('transition1', { useTransition:true, checkDOMChanges: true });
+            scroll2 = new iScroll('transition2', { useTransition:true, checkDOMChanges: true });
+            scroll3 = new iScroll('transition3', { useTransition:true, checkDOMChanges: true });
+            scroll4 = new iScroll('transition4', { useTransition:true, checkDOMChanges: true }); 
+            scrollContent01 = new iScroll('contentWrapper01', { checkDOMChanges: true });
+            scrollContent02 = new iScroll('contentWrapper02' ,{ checkDOMChanges: true });
+            scrollOrder = new iScroll('contentOrder', { checkDOMChanges: true });
+           }, 250);
+        }
+        
+       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+      document.addEventListener('DOMContentLoaded', loaded, false);      
+       //document.addEventListener('DOMContentLoaded', function(){ setTimeout(loaded,500);}, false);
+        </script>
+                
+ <script>
+		function allOrientations()
+		{
+		  if(!window.location.hash)
+		  {
+		      if(document.height < window.outerHeight)
+		      {
+		          document.body.style.height = (window.outerHeight + 50) + 'px';
+		      }
+		
+		      setTimeout( function(){ window.scrollTo(0, 1); }, 500 );
+		  }
+		}
+		
+		window.addEventListener("load", function(){ if(!window.pageYOffset){ allOrientations(); } } );
+		window.addEventListener("orientationchange", allOrientations );
+</script>
+
+<script src="assets/jquery-1.7.1.min.js"></script>
+<script src="assets/jquery.reveal-iphone.js"></script>
+
+
+<!-- ++++++++++++++++ Initial Overlay calls ++++++++++++++++++ -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#button-eatout').click(function(e) { // Button which will activate our modal
+			   	$('#modal-eatout').reveal({ // The item which will be opened with reveal
+					dismissmodalclass: 'close'    // the class of a button or element that will close an open modal
+				});
+			return false;
+			});
+		});
+	</script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#button-todo').click(function(e) { // Button which will activate our modal
+			   	$('#modal-todo').reveal({ // The item which will be opened with reveal
+					dismissmodalclass: 'close'    // the class of a button or element that will close an open modal
+				});
+			return false;
+			});
+		});
+	</script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#button-accomm').click(function(e) { // Button which will activate our modal
+			   	$('#modal-accomm').reveal({ // The item which will be opened with reveal
+					dismissmodalclass: 'close'    // the class of a button or element that will close an open modal
+				});
+			return false;
+			});
+		});
+	</script>	
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#button-nos').click(function(e) { // Button which will activate our modal
+			   	$('#modal-nos').reveal({ // The item which will be opened with reveal
+					dismissmodalclass: 'close'    // the class of a button or element that will close an open modal
+				});
+			return false;
+			});
+		});
+	</script>	
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#button-order').click(function(e) { // Button which will activate our modal
+			   	$('#myModalOrder').reveal({ // The item which will be opened with reveal
+					dismissmodalclass: 'close-order'    // the class of a button or element that will close an open modal
+				});
+			return false;
+			});
+		});
+	</script>
+
+<script>
+$(function() {
+  $('#bottom_menu li a').click(function(e) {
+    e.preventDefault();
+    animateSlider(this.hash);
+  });
+  function animateSlider(hash) {
+    if (!$('#popup_container div.open').length) {
+      if (hash == '#about') {
+        openPopup(hash);
+      }
+      if (hash == '#contact') {
+        openPopup(hash);
+      }
+    } else {
+      if (hash == '#about') {
+        openAndClose(hash)
+      }
+      if (hash == '#contact') {
+        openAndClose(hash)
+      }
+    }
+  }
+  function openPopup(hash) {
+    $(hash + '_popup').slideToggle().addClass('open');
+  }
+  function openAndClose(hash) {
+    if ($(hash + '_popup').hasClass('open')) {
+      $($(hash + '_popup')).slideToggle().removeClass();
+    } else {
+      $('#popup_container div.open').slideToggle().removeClass();
+      $(hash + '_popup').slideToggle().addClass('open');
+    }
+  }
+});
+</script>
+
+<!-- ++++++++++++++++ END SCRIPTS BELOW DOM ++++++++++++++++++ -->
+
+
+<!--MODAL SCROLL EATOUT -->
+<div id="modal-eatout">
+<ul><li class="catagory-eatout"><a href="#" class="close"><span class="catagoryname-eatout">Category 1</span><span class="circno-close">CLOSE</span></a></li></ul>
+	<div id="transition1">
+	
+	<div class="scroller">
+		<ul id="navScroller">
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal01"><span class="circno-eatout">1</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal02"><span class="circno-eatout">2</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">3</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">4</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">5</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">6</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">7</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">8</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">9</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">10</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">11</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">12</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">13</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">14</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">15</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-eatout"><a href="#" data-reveal-id="myModal00"><span class="circno-eatout">16</span>Menu item<span class="next">&gt;</span></a></li>
+		</ul>
+	</div>
+	</div><!--END transition -->
+	
+</div><!--END MODAL EATOUT -->
+
+<!--MODAL SCROLL TODO -->
+<div id="modal-todo">
+<ul><li class="catagory-todo"><a href="#" class="close"><span class="catagoryname-todo">Category 2</span><span class="circno-close">CLOSE</span></a></li></ul>
+	<div id="transition2">
+	<div class="scroller">
+		<ul id="navScroller">
+			<li class="nav-todo"><a href="#" data-reveal-id="myModal00"><span class="circno-todo">1</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-todo"><a href="#" data-reveal-id="myModal00"><span class="circno-todo">2</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-todo"><a href="#" data-reveal-id="myModal00"><span class="circno-todo">3</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-todo"><a href="#" data-reveal-id="myModal00"><span class="circno-todo">4</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-todo"><a href="#" data-reveal-id="myModal00"><span class="circno-todo">5</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-todo"><a href="#" data-reveal-id="myModal00"><span class="circno-todo">6</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-todo"><a href="#" data-reveal-id="myModal00"><span class="circno-todo">7</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-todo"><a href="#" data-reveal-id="myModal00"><span class="circno-todo">8</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-todo"><a href="#" data-reveal-id="myModal00"><span class="circno-todo">9</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-todo"><a href="#" data-reveal-id="myModal00"><span class="circno-todo">10</span>Menu item<span class="next">&gt;</span></a></li>
+		</ul>
+	</div>
+	</div>
+	<footer id="">Footer</footer>
+</div><!--END MODAL EATOUT -->
+
+<!--MODAL SCROLL ACCOMM -->
+<div id="modal-accomm">
+<ul><li class="catagory-accom"><a href="#" class="close"><span class="catagoryname-accom">Category 3</span><span class="circno-close">CLOSE</span></a></li></ul>
+	<div id="transition3">
+	<div class="scroller">		
+		<ul id="navScroller">
+			<li class="nav-accom"><a href="#" data-reveal-id="myModal00"><span class="circno-accom">1</span>Menu item<span class="next">&gt;</span></a></li>
+			<li class="nav-accom"><a href="#"><span class="circno-accom">2</span>Menu item</a></li>
+			<li class="nav-accom"><a href="#"><span class="circno-accom">3</span>Menu item</a></li>
+			<li class="nav-accom"><a href="#"><span class="circno-accom">4</span>Menu item</a></li>
+			<li class="nav-accom"><a href="#"><span class="circno-accom">5</span>Menu item</a></li>
+			<li class="nav-accom"><a href="#"><span class="circno-accom">6</span>Menu item</a></li>
+			<li class="nav-accom"><a href="#"><span class="circno-accom">7</span>Menu item</a></li>
+			<li class="nav-accom"><a href="#"><span class="circno-accom">8</span>Menu item</a></li>
+			<li class="nav-accom"><a href="#"><span class="circno-accom">9</span>Menu item</a></li>
+			<li class="nav-accom"><a href="#"><span class="circno-accom">10</span>Menu item</a></li>
+			<li class="nav-accom"><a href="#"><span class="circno-accom">11</span>Menu item</a></li>
+		</ul>
+	</div>
+	</div>
+	<footer id="">Footer</footer>
+</div><!--END MODAL ACCOMM -->
+
+<!--MODAL SCROLL NUMBERS -->
+<div id="modal-nos">
+<ul><li class="catagory-nav"><a href="#" class="close"><span class="catagoryname-nav">Category 4</span><span class="circno-close">CLOSE</span></a></li></ul>
+
+		<div id="transition4">	     
+		<div id="contentScroller">
+          <h3>1 autem ea placeat voluptas</h3>
+          <p>Vitae non distinctio deserunt omnis doloribus qui consectetur ex soluta vitae non voluptatibus deleniti dolores. omnis nihil quo eius illo cupiditate molestiae. cumque et quae at quod temporibus rerum et sed et assumenda commodi possimus. voluptate et velit ea necessitatibus dolorem iste laboriosam cumque consequuntur dolor sit ex et. quia nostrum ratione eius exercitationem dignissimos eos soluta fugit quo maiores. asperiores iste facere quasi iste. ullam saepe veritatis blanditiis quae harum quasi voluptates qui assumenda enim sunt quasi adipisci laudantium. Qui id dolores non incidunt iste quia debitis eligendi non quaerat ut est voluptatum. dolorem quidem consequatur adipisci a natus consectetur est sunt odio tempore asperiores distinctio necessitatibus. eos sed suscipit nisi aspernatur et nemo itaque eum ab asperiores sunt rerum quasi animi. omnis iure et aut sit. nulla enim assumenda ex</p>
+                  <h3>2 autem ea placeat voluptas</h3>
+          <p>Vitae non distinctio deserunt omnis doloribus qui consectetur ex soluta vitae non voluptatibus deleniti dolores. omnis nihil quo eius illo cupiditate molestiae. cumque et quae at quod temporibus rerum et sed et assumenda commodi possimus. voluptate et velit ea necessitatibus dolorem iste laboriosam cumque consequuntur dolor sit ex et. quia nostrum ratione eius exercitationem dignissimos eos soluta fugit quo maiores. asperiores iste facere quasi iste. ullam saepe veritatis blanditiis quae harum quasi voluptates qui assumenda enim sunt quasi adipisci laudantium. Qui id dolores non incidunt iste quia debitis eligendi non quaerat ut est voluptatum. dolorem quidem consequatur adipisci a natus consectetur est sunt odio tempore asperiores distinctio necessitatibus. eos sed suscipit nisi aspernatur et nemo itaque eum ab asperiores sunt rerum quasi animi. omnis iure et aut sit. nulla enim assumenda ex</p>
+       
+          <h3>3 beatae quisquam ratione repudiandae</h3>
+          <p>Maiores ut quia facilis tempora est velit vero. voluptatibus aut ex necessitatibus soluta ducimus maiores. praesentium placeat sequi repellendus rerum beatae. Libero eaque omnis provident odio rerum vero eius magnam ipsa repellendus iste sed soluta. iusto consequatur omnis perferendis modi sit ut nesciunt ut debitis fuga corporis aperiam eum sequi. perferendis inventore in repellendus non. numquam repellat minima corporis totam est voluptatem nesciunt voluptatum nulla. pariatur nemo cum porro. dolore quam et aut</p>
+        </div>
+       
+	</div>
+	</div>
+	<footer id="">Footer</footer>
+</div><!--END MODAL NUMBERS -->
+
+<!-- MODAL PAGES -->
+
+
+
+<div id="myModal01" class="reveal-modal">
+<ul id=""><li class="catagory-eatout"><a href="#" class="close-reveal-modal"><span class="catagoryname-eatout">Category 1</span><span class="circno-close">BACK</span></a></li></ul>
+<article id="contentWrapper01">
+	<div id="contentScroller">		
+		<div class="simpleCart_shelfItem">
+		  <h2 class="item_name">Menu Item 1</h2><div id="shop"><span class="item_price">$15.00</span><a onclick="javascript:;" class="item_add"><span class="item_add_btn">Add to Order</span></a></div>
+		</div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non nibh eget tellus commodo gravida et vel erat. Proin vitae augue nec magna elementum rhoncus vitae sed turpis. Sed id lobortis erat. Praesent molestie placerat elit, in auctor eros tristique non. Sed venenatis interdum quam ut tincidunt. Mauris mattis placerat ante pulvinar blandit.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non nibh eget tellus commodo gravida et vel erat. Proin vitae augue nec magna elementum rhoncus vitae sed turpis. Sed id lobortis erat. Praesent molestie placerat elit, in auctor eros tristique non. Sed venenatis interdum quam ut tincidunt. Mauris mattis placerat ante pulvinar blandit.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non nibh eget tellus commodo gravida et vel erat. Proin vitae augue nec magna elementum rhoncus vitae sed turpis. Sed id lobortis erat. Praesent molestie placerat elit, in auctor eros tristique non. Sed venenatis interdum quam ut tincidunt. Mauris mattis placerat ante pulvinar blandit.</p>
+		<p class="footerspace">&nbsp;</p>
+	</div>
+	</div></article>
+</div>
+
+
+<div id="myModal02" class="reveal-modal">
+<ul id=""><li class="catagory-eatout"><a href="#" class="close-reveal-modal"><span class="catagoryname-eatout">Category 1</span><span class="circno-close">BACK</span></a></li></ul>
+<article id="contentWrapper02">
+	<div id="contentScroller">
+		<div class="simpleCart_shelfItem">
+		 <h2 class="item_name">Menu Item 2</h2><div id="shop"><span class="item_price">$11.50</span><a onclick="javascript:;" class="item_add"><span class="item_add_btn">Add to Order</span></a></div>
+		</div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non nibh eget tellus commodo gravida et vel erat. Proin vitae augue nec magna elementum rhoncus vitae sed turpis. Sed id lobortis erat. Praesent molestie placerat elit, in auctor eros tristique non. Sed venenatis interdum quam ut tincidunt. Mauris mattis placerat ante pulvinar blandit.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non nibh eget tellus commodo gravida et vel erat. Proin vitae augue nec magna elementum rhoncus vitae sed turpis. Sed id lobortis erat. Praesent molestie placerat elit, in auctor eros tristique non. Sed venenatis interdum quam ut tincidunt. Mauris mattis placerat ante pulvinar blandit.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non nibh eget tellus commodo gravida et vel erat. Proin vitae augue nec magna elementum rhoncus vitae sed turpis. Sed id lobortis erat. Praesent molestie placerat elit, in auctor eros tristique non. Sed venenatis interdum quam ut tincidunt. Mauris mattis placerat ante pulvinar blandit.</p>
+		<p class="footerspace">&nbsp;</p>
+	</div>
+	</div></article>
+</div>
+
+
+<!-- =============== ORDER MODAL =============== -->
+<div id="myModalOrder" class="reveal-modal-order">
+	<ul id=""><li class="catagory-nav"><a href="#" class="close-order"><span class="catagoryname-eatout">My Order</span><span class="circno-close">CLOSE</span></a></li></ul>
+		<article id="contentOrder">
+			<div id="orderScroller">
+
+			
+			<div class="simpleCart_items"></div>
+			
+			<div id="contact-form">	
+			<form id="contact" method="post" action="" class="commentForm">
+			<fieldset>	
+			
+			<label for="name">First Name</label>
+			<input type="text" name="first name" placeholder="First Name" title="Enter your First Name" class="required" id="first_name" required>
+			
+			<label for="name">Last Name</label>
+			<input type="text" name="last name" placeholder="Last Name" title="Enter your Last Name" class="required" id="last_name" required>
+			
+			<label for="email">Email</label>
+			<input type="email" name="email" placeholder="yourname@domain.com" title="Enter your e-mail address" class="required email" id="email" required>
+			
+			<label for="phone">Phone</label>
+			<input type="tel" name="phone" placeholder="Optional" id="phone">
+			
+			<label for="message">Comment</label>
+			<textarea name="message" placeholder="Optional" id="comments"></textarea>
+			
+			<input class="submit checkout_btn" type="submit" id="submitvalidatedorder" value="Validate"  />
+			<input class="simpleCart_checkout checkout_btn" type="submit" id="SendOrderButton" value="Send Order"  />
+
+			</fieldset>
+			</form>
+
+<script>
+$("#commentForm").validate();
+</script>
+			</div><!-- /end #contact-form -->
+			
+
+			</div></article><!--scrollview -->
+
+		<footer>
+	 	 <ul id="footer_menu">
+		  	<li><a href="#" class="close-order"><span class="spacer">My Order</span><span class="simpleCart_quantity"></span><span class="spacer">Items Total</span><span class="simpleCart_total"></span></a></li>
+		  </ul>
+		</footer>
+</div><!--END MODAL -->
+
+<!-- ++++++++++++++++ SCRIPTS simpleCart ++++++++++++++++++ -->
+<script src="assets/simpleCart305.js"></script>
+<script>
+simpleCart({
+//var myCart = simpleCart({ 
+
+		//Setting the Cart Columns for the sidebar cart display.
+		cartColumns: [
+			//{ attr: "image", label: false, view: "image"},
+			//Name of the item
+			{ attr: "name" , label: "Item" },
+			//Quantity displayed as an input
+			{ attr: "quantity", label: "Qty", view: "input"},
+			
+			//Built in view for a remove link
+			{ view:'remove', text: "X", label: "Del"},
+			
+			//Price of item
+			//{ attr: "price", label: "Price", view: "currency"},
+			//Subtotal of that row (quantity of that item * the price)
+			{ attr: "total" , label: "SubTot", view: "currency"  }
+		],
+		cartStyle: "table",
+		
+		checkout: {
+		type: "SendForm",
+		url: "http://devop.in/movil/app/web/sendcart-order.php",
+
+
+		//type: "PayPal" , //original Simplecart 
+		//email: "your-shop@yourmail.com",
+		
+		// http method for form, "POST" or "GET", default is "POST"
+		method: "POST" ,
+		
+		// url to return to on successful checkout, default is null
+		success: "success-order.html" ,
+		
+		// url to return to on cancelled checkout, default is null
+		cancel: "cancel.php" ,
+		
+		extra_data: {
+			first_name: document.getElementById("first_name").value,
+			last_name: document.getElementById("last_name").value,
+			email: document.getElementById("email").value,
+			email: document.getElementById("phone").value,
+			email: document.getElementById("comments").value,
+		cartid: "12321321"
+    }
+}
+
+});
+
+simpleCart.currency( "usd" );
+
+simpleCart.bind( 'beforeCheckout' , function( data ){
+		data.first_name = document.getElementById("first_name").value;
+		data.last_name = document.getElementById("last_name").value;
+		data.email = document.getElementById("email").value;
+		data.phone = document.getElementById("phone").value;
+		data.comments = document.getElementById("comments").value;
+});
+
+
+//console.log(myCart.checkout.extra_data); //view in your console
+
+</script>
+
+<script src="assets/jquery.validate.min.js"></script>
+<script>
+$.validator.setDefaults({
+	//submitHandler: function() { alert("submitted!"); }
+	submitHandler: function() { 
+	$("#SendOrderButton").show();
+	$("#submitvalidatedorder").hide();
+ }
+
+});
+
+$().ready(function() {
+	// validate the comment form when it is submitted
+	$(".commentForm").validate();
+	$("#SendOrderButton").hide();
+});
+</script>
+<script type="text/javascript">
+            app.initialize();
+        </script>
+
+</body>
+</html>

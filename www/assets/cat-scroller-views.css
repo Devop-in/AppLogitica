@@ -1,0 +1,41 @@
+/* -------PORTRAIT iPhone 4------- */	
+@media screen and (device-height: 480px)
+{
+#transition1, #transition2, #transition3, #transition4 {height: 322px;}
+}
+
+/* -------PORTRAIT iPhone 5------- */	
+@media screen and (device-height: 568px)
+{
+#transition1, #transition2, #transition3, #transition4 {height: 410px;}
+}
+
+/* -------LANDSCAPE iPhone 4 & 5------- */	
+@media screen and (device-width: 320px) and (orientation: landscape)
+{
+#transition1, #transition2, #transition3, #transition4 {height: 162px;}
+}
+
+/* -------PORTRAIT iPad------- */	
+@media screen and (min-width: 768px)
+{
+#transition1, #transition2, #transition3, #transition4 {height: 866px;}
+}
+
+/* -------LANDSCAPE iPad------- */	
+@media screen and (min-width: 769px)
+{
+#transition1, #transition2, #transition3, #transition4 {height: 610px;}
+}
+
+
+
+/* -------PORTRAIT android------ */	
+@media screen and (max-device-height: 479px)
+{
+#transition1, #transition2, #transition3, #transition4 {height: 75%;}
+}
+
+
+
+

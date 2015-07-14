@@ -1,0 +1,106 @@
+/*	--------------------------------------------------
+	Reveal Modals
+	-------------------------------------------------- */
+		
+	.reveal-modal-bg { 
+		position: fixed; 
+		height: 100%;
+		width: 100%;
+		background: #000;
+		background: rgba(0,0,0,.5);
+		z-index: 100;
+		display: none;
+		top: 44px;
+		left: 0; 
+		}
+	
+	.reveal-modal {
+		visibility: hidden;
+		position: fixed;
+		z-index: 102;
+		top: 0; 
+		left: 0px;
+		/*margin-left: -300px;*/
+		width: 100%;
+		height: 100%;
+		background: #eee -webkit-gradient(linear, 0 0, 0 100, from(#fff), to(#eee));
+		padding:0px;
+		}
+		
+	.reveal-modal-order {
+		visibility: hidden;
+		position: fixed;
+		z-index: 999;
+		top: 0; 
+		left: 0;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		background: #fff;
+		padding:0px;
+		-webkit-border-radius:0px;
+		}		
+	
+	/*POPUP MODAL*/
+#modal-eatout, #modal-todo, #modal-accomm, #modal-nos {
+	visibility:hidden;
+	width: 100%;
+	height:auto;
+	padding:0px;
+	-webkit-background-size:0.438em 100%;
+	background:-webkit-gradient(linear,left top,right top,from(#c5ccd4),color-stop(71%, #c5ccd4),color-stop(72%, #cbd2d8),to(#cbd2d8));
+	position: fixed;
+	top: 44px;
+	bottom: 0px;
+	left:0;
+	z-index:101;
+	display: block;
+}
+	
+	.reveal-modal.icons 		{ width: 748px;  right: 10px;}
+	.reveal-modal.medium 		{ width: 400px; margin-left: -240px;}
+	.reveal-modal.large 		{ width: 600px; margin-left: -340px;}
+	.reveal-modal.xlarge 		{ width: 800px; margin-left: -440px;}
+	
+	/*.reveal-modal-order .close-reveal-modal-order {
+		font-size: 44px;
+		line-height: .5;
+		position: absolute;
+		top: 8px;
+		right: 11px;
+		color: #aaa;
+		text-shadow: 0 -1px 1px rbga(0,0,0,0.5);
+		font-weight: bold;
+		cursor: pointer;
+		} */
+		
+	.close-reveal-modal {}
+
+
+		
+h2 {font-size:1.4em;line-height:26px;}		
+
+	
+span.boldsmall {font-size: 0.8em; font-weight:bold;}	
+	
+span.close {		
+		font-size: 18px;
+		padding-top: 6px;
+		position:relative;
+		float: right;
+		display: inline;	
+		}	
+		
+.reveal-modal button {
+	-webkit-transform: scale(1.1);
+	float: right;
+		}	
+	
+					
+/* -------LANDSCAPE------- */
+@media screen and (min-width: 321px)
+{
+
+
+
+}
